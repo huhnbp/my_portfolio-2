@@ -11,7 +11,7 @@ import RightPane from './RightPane.tsx'
 
 const Home = () =>{
     return(
-        <Grid container spacing={2} height="100vh" sx={{color:'lightgray'}}>
+        <Grid container spacing={2} height="100vh">
             <Grid id="left-pane-grid" item size={6}
               display="flex"
               justifyContent="center"

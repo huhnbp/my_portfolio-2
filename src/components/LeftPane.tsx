@@ -8,7 +8,18 @@ import Button from '@mui/material/Button';
 import GImage from '../assets/github-mark.png'
 import linkedLogo from '../assets/LI-In-Bug.png'
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 const LeftPane = () => {
+
+    const outerTheme = createTheme({
+      palette: {
+        primary: {
+          main: "#D3D3D3",
+          dark: '#345F20'
+        },
+      },
+    });
 
     return(
         <Box>
@@ -18,12 +29,14 @@ const LeftPane = () => {
                 <Typography>I built reactive websites and apps</Typography>
             </Box>
             <Box id="page-links" padding="20px">
-                <ButtonGroup orientation="vertical">
-                    <Button variant="text">About Me</Button>
-                    <Button variant="text">Projects</Button>
-                    <Button variant="text">Resume</Button>
-                    <Button variant="text">Contact Me</Button>
-                </ButtonGroup>
+                <ThemeProvider theme={outerTheme}>
+                    <ButtonGroup orientation="vertical">
+                        <Button variant="text" sx={{ justifyContent: "flex-start" }}>____About Me</Button>
+                        <Button variant="text" sx={{ justifyContent: "flex-start" }}>____Projects</Button>
+                        <Button variant="text" sx={{ justifyContent: "flex-start" }}>____Resume</Button>
+                        <Button variant="text" sx={{ justifyContent: "flex-start" }}>____Contact Me</Button>
+                    </ButtonGroup>
+                </ThemeProvider>
             </Box>
 
             <Box id="links-navbar" padding="20px" display="inline-flex">

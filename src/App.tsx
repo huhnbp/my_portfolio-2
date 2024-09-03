@@ -3,6 +3,10 @@ import './App.css';
 import Home from './components/Home.tsx'
 import BackgroundImage from './assets/background.jpg'
 
+import AroundEverythingDemo from './components/AroundEverythingDemo.tsx'
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 const App = () => {
     return(
         <div style={{
@@ -10,9 +14,15 @@ const App = () => {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             width: '100vw',
-            height: '100vh'
+            height: '100vh',
+            color:'lightgray'
         }}>
-            <Home />
+        <BrowserRouter>
+        		<Routes>
+        			<Route path="/" element={<Home />} />
+        			<Route path="AroundEverything" element={<AroundEverythingDemo />} />
+        		</Routes>
+        	</BrowserRouter>
         </div>
     )
 }

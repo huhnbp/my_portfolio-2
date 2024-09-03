@@ -11,7 +11,20 @@ import TextField from '@mui/material/TextField';
 
 import placeholderLogo from '../assets/placeholderLogo.jpg'
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 const RightPane = () => {
+
+    const outerTheme = createTheme({
+      palette: {
+        primary: {
+            main: "#D3D3D3",
+            light: "#D3D3D3",
+            dark: '#D3D3D3',
+            contrastText: '#D3D3D3',
+        },
+      },
+    });
 
     const jobs = [
         {
@@ -83,26 +96,12 @@ const RightPane = () => {
                         />
                         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                             <CardContent>
-                                <Typography variant="h6">Around Everything</Typography>
-                                <Typography>lorem ipsum insert description of app here (make sure to add onclick here)</Typography>
+                                <Typography sx={{ fontWeight:'bold' }} variant="h6">Around Everything</Typography>
+                                <Typography>Around Everything (name pending) is a new interactive social media experience where users can subscribe to events by companies on the fly!</Typography>
                             </CardContent>
-                        </Box>
-                    </Card>
-                </Box>
-
-                <Box sx={{padding:'5px 0px'}}>
-                    <Card id="apartment-manager-card" sx={{ display:'flex' }}>
-                        <CardMedia
-                            component="img"
-                            sx={{width: 151}}
-                            image={placeholderLogo}
-                            alt="around everything logo"
-                        />
-                        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                            <CardContent>
-                                <Typography variant="h6">Apartment manager</Typography>
-                                <Typography>lorem ipsum insert description of app here (make sure to add onclick here)</Typography>
-                            </CardContent>
+                             <CardActions>
+                                <Button href="/AroundEverything" size="small">Learn More</Button>
+                              </CardActions>
                         </Box>
                     </Card>
                 </Box>
@@ -131,6 +130,7 @@ const RightPane = () => {
                     <Typography id="resume" padding="5px 0px" variant="h4">CONTACT ME</Typography>
                     <Box>
                         <TextField
+                          variant="filled"
                           fullWidth
                           required
                           id="fName"
@@ -138,17 +138,27 @@ const RightPane = () => {
                           margin="dense"
                           value={firstName}
                           onChange={(event)=>setFirstName(event.target.value)}
+                          inputProps={{ style: { color: "lightgray" } }}
+                            InputLabelProps={{
+                              style: { color: 'lightgray' },
+                            }}
                         />
                         <TextField
-                          fullWidth
-                          required
-                          id="lName"
-                          label="Last Name"
-                          margin="dense"
-                           value={lastName}
-                           onChange={(event)=>setLastName(event.target.value)}
+                            variant="filled"
+                            fullWidth
+                            required
+                            id="lName"
+                            label="Last Name"
+                            margin="dense"
+                            value={lastName}
+                            onChange={(event)=>setLastName(event.target.value)}
+                            inputProps={{ style: { color: "lightgray" } }}
+                            InputLabelProps={{
+                                style: { color: 'lightgray' },
+                            }}
                         />
                         <TextField
+                          variant="filled"
                           fullWidth
                           required
                           id="email"
@@ -156,19 +166,28 @@ const RightPane = () => {
                           margin="dense"
                           value={email}
                           onChange={(event)=>setEmail(event.target.value)}
+                          inputProps={{ style: { color: "lightgray" } }}
+                          InputLabelProps={{
+                            style: { color: 'lightgray' },
+                          }}
                         />
                         <TextField
+                          variant="filled"
                           fullWidth
                           required
                           id="description"
-                          label="description"
+                          label="Description"
                           value={desc}
                           margin="dense"
                           multiline
                           rows={4}
                           onChange={(event)=>setDesc(event.target.value)}
+                          InputLabelProps={{
+                            style: { color: 'lightgray' },
+                          }}
+                          inputProps={{ style: { color: "lightgray" } }}
                         />
-                        <Button variant="text" onClick={sendEmail}>View full resume</Button>
+                        <Button variant="text" onClick={sendEmail}>Submit</Button>
                     </Box>
                 </Box>
             </Box>
