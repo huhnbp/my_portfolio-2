@@ -18,7 +18,7 @@ import Resume from '../assets/Resume.pdf';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const RightPane = () => {
+const RightPaneMobile = () => {
 
     const sz = {
         display: 'flex',
@@ -106,11 +106,11 @@ const RightPane = () => {
     }
     //// make the cards blend in with background and then have a hover
     return(
-        <Box id="right-pane" sx={{maxWidth: '90%'}}>
+        <Box id="right-pane" padding="5px" sx={{maxWidth: '90%'}}>
             <Box padding="20px 0px">
                 <Typography id="projects" padding="10px 0px" variant="h4">PROJECTS</Typography>
                 <Box sx={{padding:'5px 0px'}}>
-                    <Card id="around-everything-card" sx={{ display:'flex' }}>
+                    <Card id="around-everything-card" sx={{ display:'table' }}>
                         <CardMedia
                             component="img"
                             sx={{width: 151}}
@@ -127,7 +127,7 @@ const RightPane = () => {
                                 </Typography>
                             </CardContent>
                              <CardActions>
-                                <Button href="/AroundEverything" size="small">Learn More</Button>
+                                <Button href="/AroundEverythingMobile" size="small">Learn More</Button>
                               </CardActions>
                         </Box>
                     </Card>
@@ -238,4 +238,4 @@ const RightPane = () => {
     )
 }
 
-export default RightPane;
+export default RightPaneMobile;

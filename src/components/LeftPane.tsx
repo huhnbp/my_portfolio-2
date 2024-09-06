@@ -12,6 +12,14 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const LeftPane = () => {
 
+    const sz = {
+        justifyContent: "flex-start",
+        "&:hover": {
+            backgroundColor:'rgba(0, 0, 0, 0.06)',
+            boxShadow:3,
+        },
+    }
+
     const outerTheme = createTheme({
       palette: {
         primary: {
@@ -24,21 +32,24 @@ const LeftPane = () => {
     return(
         <Box>
             <Box id="me" padding="20px">
-                <Typography variant="h2">Brian Huhn</Typography>
-                <Typography variant="h5">Senior Software Engineer</Typography>
-                <Typography>I built reactive websites and apps</Typography>
+                <Typography variant="h2" sx={{fontWeight:'bold'}}>Brian Huhn</Typography>
+                <Typography variant="h5" sx={{fontWeight:'medium'}}>Senior Software Engineer</Typography>
+                <Typography variant="h8" sx={{fontWeight:'light'}}>
+                    I am well-versed in developing websites, mobile apps, and computer programs. Feel free to check my
+                    products and feel free to contact me if you are interested in owning your own site.
+                </Typography>
             </Box>
+            {/*
             <Box id="page-links" padding="20px">
                 <ThemeProvider theme={outerTheme}>
                     <ButtonGroup orientation="vertical">
-                        <Button variant="text" sx={{ justifyContent: "flex-start" }}>____About Me</Button>
-                        <Button variant="text" sx={{ justifyContent: "flex-start" }}>____Projects</Button>
-                        <Button variant="text" sx={{ justifyContent: "flex-start" }}>____Resume</Button>
-                        <Button variant="text" sx={{ justifyContent: "flex-start" }}>____Contact Me</Button>
+                        <Button variant="text" sx={sz}>____Projects</Button>
+                        <Button variant="text" sx={sz}>____Resume</Button>
+                        <Button variant="text" sx={sz}>____Contact Me</Button>
                     </ButtonGroup>
                 </ThemeProvider>
             </Box>
-
+            */}
             <Box id="links-navbar" padding="20px" display="inline-flex">
                 <img
                     src={GImage}

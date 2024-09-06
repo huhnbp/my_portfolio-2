@@ -4,6 +4,7 @@ import Home from './components/Home.tsx'
 import BackgroundImage from './assets/background.jpg'
 
 import AroundEverythingDemo from './components/AroundEverythingDemo.tsx'
+import AroundEverythingDemoMobile from './components/AroundEverythingDemoMobile.tsx'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ const App = () => {
         		<Routes>
         			<Route path="/" element={<Home />} />
         			<Route path="AroundEverything" element={<AroundEverythingDemo />} />
+        			<Route path="AroundEverythingMobile" element={<AroundEverythingDemoMobile />} />
         		</Routes>
         	</BrowserRouter>
         </div>

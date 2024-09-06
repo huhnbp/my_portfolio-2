@@ -21,7 +21,7 @@ import placeholderLogo from '../assets/placeholderLogo.jpg'
 
 const AroundEverythingDemo = () => {
     return(
-        <Box padding="40px">
+        <Box sx={{ overflowY: "scroll", maxHeight: "100%" }}>
             <Breadcrumbs>
                 <Link
                   underline="hover"
@@ -33,11 +33,6 @@ const AroundEverythingDemo = () => {
                 <Typography>AroundEverything</Typography>
             </Breadcrumbs>
 
-        <Grid container spacing={2} height="100vh">
-            <Grid id="left-pane-grid" item size={6}
-              display="flex"
-              alignItems="center"
-            >
                 <Stack direction="column" spacing={1} padding="5px 0px">
                     <Typography id="resume" padding="5px 0px" variant="h4">Users</Typography>
                     <Paper>
@@ -61,11 +56,9 @@ const AroundEverythingDemo = () => {
                         </Box>
                     </Paper>
                 </Stack>
-            </Grid>
             {/* <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164} */}
-            <Grid item size={6}>
                 <Box id="ILBox" sx={{ display: 'flex', justifyContent: 'center'}}>
-                    <ImageList cols={3}
+                    <ImageList cols={1}
                         display="flex"
                         justifyContent="center"
                         alignItems="center"
@@ -106,8 +99,6 @@ const AroundEverythingDemo = () => {
                         </ImageListItem>
                     </ImageList>
                   </Box>
-                </Grid>
-            </Grid>
         </Box>
     )
 }
