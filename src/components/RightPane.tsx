@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
 
 import placeholderLogo from '../assets/placeholderLogo.jpg';
 import Resume from '../assets/Resume.pdf';
@@ -74,6 +75,9 @@ const RightPane = () => {
     const [email, setEmail] = useState('');
     const [desc, setDesc] = useState('');
 
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [isFail, setIsFail] = useState(false);
+
     const SERVICE_ID="service_wfyx10g";
     const TEMPLATE_ID="template_kn88jc6";
     const PUBLIC_KEY="z9m2tkKM03ejz9Jdu";
@@ -81,13 +85,11 @@ const RightPane = () => {
 
     const sendEmail = (e) => {
         if(firstName==='' || lastName==='' || email==='' || desc===''){
-            console.log('empty field');
             return;
         }
 
         // display error message here
         if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)){
-            console.log('bad email')
             return;
         }
         const params = {
@@ -100,8 +102,16 @@ const RightPane = () => {
         emailjs.send(SERVICE_ID, TEMPLATE_ID, params, PUBLIC_KEY)
             .then((result) => {
                 console.log(result.text);
+                setFirstName('');
+                setLastName('');
+                setEmail('');
+                setDesc('');
+                setIsSuccess(true);
+                setIsFail(false);
             }, (error) => {
                 console.log(error.text);
+                setIsSuccess(false);
+                setIsFail(true);
           });
     }
     //// make the cards blend in with background and then have a hover
@@ -234,6 +244,18 @@ const RightPane = () => {
                     </Box>
                 </Box>
             </Box>
+            <Snackbar
+                    open={isSuccess}
+                    autoHideDuration={6000}
+                    onClose={()=>{setIsSuccess(false)}}
+                    message="Email Sent"
+            />
+            <Snackbar
+                    open={isFail}
+                    autoHideDuration={6000}
+                    onClose={()=>{setIsFail(false)}}
+                    message="Email Failed"
+            />
         </Box>
     )
 }
